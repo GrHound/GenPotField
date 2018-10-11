@@ -1,6 +1,11 @@
 # GenPotField
 This is a small package, mainly intended for machine-learning researchers who want to take a look at potential-field estimation as is done in Molecular Dynamics (MD) or molecular simulations. The tool only generates a potential fields. None of the realistic geometric problems of molecular symmetry etc. are handled, just a 2D mountain landcape is generated using a randomly drawn Gaussian mixture. However, some structuring is present. A main peak is drawn randomly and is given the largest amplitude. Then, in its vicinity, secondary peaks are drawn, and so on, recursively. Standard deviations, number of levels and number of peaks per hierarchical level can be specified.
 
+The Bash script 'demo' will generate 100 potential fields (parameters, samples, grid and plot), with each set
+or experiment containing 1000 samples. The data sets have a random name of the form potfield-<random integer>.par etc. Data are organized in four directories: ./Par ./Data ./Grid and ./Plot
+	
+Working environment is assumed to be Linux with bash, sed and gnuplot.	
+
 See: potfield-example.png
 ![Example image](potfield-example.png)
 
@@ -28,7 +33,7 @@ Creating a regular grid:
 
   genpotfield -sample -parfile example.par -nsamples grid > example.samples
   
-  Options in -generate:	
+Options in -generate:	
   
        -s <integer> or 'clock' Seed value for drand48()
        
@@ -43,16 +48,23 @@ Creating a regular grid:
                 based on varfrac times the sd of the mother peak in
                 the hierarchical scheme. Default value 0.1
 
-   Options in -sample
-       -nsamples i or 'grid'   Number of randomly drawn samples with
-                               three columns in the output file:
-			        x y f(x,y)
-                                 
-                               If instead of an integer the keyword 
+ Options in -sample
+       
+        -nsamples i or 'grid'   Number of randomly drawn samples with
+                                three columns in the output file:
+			        x y f(x,y)  like so:
+				
+				0.286470 0.483686 1.247119 
+				-0.660440 0.307425 0.042538 
+				-0.068826 0.930838 0.046059 
+				0.513680 0.822562 0.027226 
+				
+			If instead of an integer the keyword 
                                is given, full grid is separated, with
                                empty lines between rows such that 
 			       gnuplot immediately can use splot to
 			       show the field in 3D.
+			       
        -ngrid <i> Number of grid points, one sided, per axis. 
                   The range for x and y will be [-1:+1] in 2*ngrid points, 
 		  for both axes x and y, yielding (2*ngrid)^2 points.
