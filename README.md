@@ -7,7 +7,9 @@ or experiment containing 1000 samples. The data sets have a random name of the f
 Working environment is assumed to be Linux with bash, sed and gnuplot.	
 
 See: potfield-example.png
+
 ![Example image](potfield-example.png)
+
 ![Example image](potfield-example2.png)
 
 genpotfield.c
