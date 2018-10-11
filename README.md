@@ -2,7 +2,7 @@
 This is a small package, mainly intended for machine-learning researchers who want to take a look at potential-field estimation as is done in Molecular Dynamics (MD) or molecular simulations. The tool only generates a potential fields. None of the realistic geometric problems of molecular symmetry etc. are handled, just a 2D mountain landcape is generated using a randomly drawn Gaussian mixture. However, some structuring is present. A main peak is drawn randomly and is given the largest amplitude. Then, in its vicinity, secondary peaks are drawn, and so on, recursively. Standard deviations, number of levels and number of peaks per hierarchical level can be specified.
 
 The Bash script 'demo' will generate 100 potential fields (parameters, samples, grid and plot), with each set
-or experiment containing 1000 samples. The data sets have a random name of the form potfield-<random integer>.par etc. Data are organized in four directories: ./Par ./Data ./Grid and ./Plot
+or experiment containing 1000 samples. The data sets have a random name of the form potfield-[RANDNUM].par etc. Data are organized in four directories: ./Par ./Data ./Grid and ./Plot
 	
 Working environment is assumed to be Linux with bash, sed and gnuplot.	
 
