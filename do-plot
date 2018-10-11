@@ -1,0 +1,16 @@
+#!/bin/bash 
+set -u
+gridfile="$1"
+b=$(basename "$gridfile" ".grid")
+if [ ! -d ./Plot ]; then
+  mkdir ./Plot
+fi
+
+echo "set terminal svg" > this.gnu
+echo "set output './Plot/$b.svg'" >> this.gnu
+echo "splot '$gridfile' w l" >> this.gnu
+#echo "pause mouse" >> this.gnu
+gnuplot < this.gnu
+#eog ./Plot/$b.svg
+echo "See image of potfield: ./Plot/$b.svg"
+rm -f this.gnu

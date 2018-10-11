@@ -1,0 +1,71 @@
+#!/bin/bash
+export RANDOM=$$
+
+for dir in Par Grid Data Plot
+do
+  if [ ! -d ./$dir ]; then
+    mkdir ./$dir
+  fi  
+done
+
+n=100
+i=1
+
+while [ $i -lt $n ]
+do
+  id=$RANDOM
+  echo "......................."
+  echo "Data set $i ID=$id"
+  echo "......................."
+
+#
+# Generate the Gaussian mixture in three levels
+#
+
+  genpotfield -generate -s clock -h 0.0 -varfrac 0.5 \
+   -p 1 0.200  0.99 \
+   -p 3 0.150  0.45 \
+   -p 4 0.070  0.24 > ./Par/potfield-$id.par
+
+  if [ $? != 0 ]; then
+    echo "genpotfield() error"
+    exit 1
+  fi
+#
+# Sample 1000 points from that distribution: x,y -> f(x,y)
+#
+  genpotfield -sample -parfile ./Par/potfield-$id.par -nsamples 1000 > ./Data/potfield-$id.samples
+
+  if [ $? != 0 ]; then
+    echo "genpotfield() error"
+    exit 1
+  fi
+  echo "See file: ./Data/potfield-$id.samples"
+
+#
+# Create a regular grid of the field
+#
+  genpotfield -sample -parfile ./Par/potfield-$id.par -nsamples grid -ngrid 30 > ./Grid/potfield-$id.grid
+
+  if [ $? != 0 ]; then
+    echo "genpotfield() error"
+    exit 1
+  fi
+  echo "See file: ./Grid/potfield-$id.grid"
+#
+# Plotting
+#
+#+Interactive: allows for rotating the splot graph  
+##  sed "s/potfield.grid/potfield-$id.grid/" < gnuplot.gnu > this.gnu
+##  echo "Plot potfield-$id.grid"
+##  gnuplot < this.gnu
+#-
+#+Make .png images in directory ./Plot
+  ./do-plot ./Grid/potfield-$id.grid
+#-
+
+#
+# Next data set
+#
+  let i=i+1
+done

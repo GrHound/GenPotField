@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rm -v ./Data/*.samples
+rm -v ./Grid/*.grid
+rm -v ./Par/*.par
+rm -v ./Plot/*.png ./Plot/*.svg
+
