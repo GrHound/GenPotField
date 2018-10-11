@@ -4,7 +4,7 @@ This is a small package, mainly intended for machine-learning researchers who wa
 See: potfield-example.png
 ![Example image](potfield-example.png)
 
-/* genpotfield.c
+genpotfield.c
 
 Program to generate simple artificial force fields using a Gaussian
 mixture, around a number of hierarchically generated centers 
@@ -28,8 +28,10 @@ Creating a regular grid:
 
   genpotfield -sample -parfile example.par -nsamples grid > example.samples
   
-  Options in -generate:
+  Options in -generate:	
   
+       -s <integer> or 'clock' Seed value for drand48()
+       
        -h (hetereogeneity) is a random variation in npeaks (default = 0)
             as a proportion of a given nmean. The number of peaks
             will then uniformly vary from nmean -/+ heterogeneity*nmean,
@@ -51,7 +53,7 @@ Creating a regular grid:
                                empty lines between rows such that 
 			       gnuplot immediately can use splot to
 			       show the field in 3D.
-       -ngrid i   Number of grid points, one sided, per axis. 
+       -ngrid <i> Number of grid points, one sided, per axis. 
                   The range for x and y will be [-1:+1] in 2*ngrid points, 
 		  for both axes x and y, yielding (2*ngrid)^2 points.
 		  Example: ngrid=30 will generate 3600 points and the
@@ -60,4 +62,4 @@ Creating a regular grid:
 
 Author: Lambert Schomaker
 Revised: Oct 2018
-*/
+
