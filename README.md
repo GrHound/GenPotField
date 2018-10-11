@@ -46,7 +46,7 @@ Options in -generate:
             with the provision that the minimum number of members is 2.
             (all branches have the same length). Default value 0.0: 
             the given number of peaks for the level without random variation.
-	    
+    
        -varfrac Proportion for sampling the sd value for a peak. It is
                 based on varfrac times the sd of the mother peak in
                 the hierarchical scheme. Default value 0.1
@@ -56,24 +56,24 @@ Options in -generate:
         -nsamples i or 'grid'   Number of randomly drawn samples with
                                 three columns in the output file:
 			        x y f(x,y)  like so:
-				
-				0.286470 0.483686 1.247119 
-				-0.660440 0.307425 0.042538 
-				-0.068826 0.930838 0.046059 
-				0.513680 0.822562 0.027226 
-				
-			If instead of an integer the keyword 'grid'
+		
+                                0.286470 0.483686 1.247119 
+                               -0.660440 0.307425 0.042538 
+                               -0.068826 0.930838 0.046059 
+                                0.513680 0.822562 0.027226 
+
+                        If instead of an integer the keyword 'grid'
                         is given, a full grid is generated, with
                         empty lines between rows such that 
-			gnuplot immediately can use splot to
-			show the field in 3D. See -ngrid.
+                        gnuplot immediately can use splot to
+                        show the field in 3D. See -ngrid.
 			       
        -ngrid <i> Number of grid points, one sided, per axis. 
                   The range for x and y will be [-1:+1] in 2*ngrid points, 
-		  for both axes x and y, yielding (2*ngrid)^2 points.
-		  Example: ngrid=30 will generate 3600 points and the
-		  output file will have 3660 records, i.e., including
-		  the empty separator lines intended for gnuplot.
+                  for both axes x and y, yielding (2*ngrid)^2 points.
+                  Example: ngrid=30 will generate 3600 points and the
+                  output file will have 3660 records, i.e., including
+                  the empty separator lines intended for gnuplot.
 
 Author: Lambert Schomaker
 Revised: Oct 2018
