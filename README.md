@@ -62,11 +62,11 @@ Options in -generate:
 				-0.068826 0.930838 0.046059 
 				0.513680 0.822562 0.027226 
 				
-			If instead of an integer the keyword 
-                               is given, full grid is separated, with
-                               empty lines between rows such that 
-			       gnuplot immediately can use splot to
-			       show the field in 3D.
+			If instead of an integer the keyword 'grid'
+                        is given, a full grid is generated, with
+                        empty lines between rows such that 
+			gnuplot immediately can use splot to
+			show the field in 3D. See -ngrid.
 			       
        -ngrid <i> Number of grid points, one sided, per axis. 
                   The range for x and y will be [-1:+1] in 2*ngrid points, 
