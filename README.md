@@ -75,6 +75,14 @@ Options in -generate:
                   output file will have 3660 records, i.e., including
                   the empty separator lines intended for gnuplot.
 
+Application example
+
+An MLP (2x20x5x1) with leaky ReLu was trained in 1000 epochs
+
+![Model,green, Trained field,purple](model+mlp.png)
+![Trained field](mlp-2x20x5x1.png)
+![Error curve in training](mlp-2x20x5x1-err.png)
+
 Author: Lambert Schomaker
 Revised: Oct 2018
 
