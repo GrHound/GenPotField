@@ -5,6 +5,7 @@ The Bash script 'demo' will generate 100 potential fields (parameters, samples, 
 or experiment containing 1000 samples. The data sets have a random name of the form potfield-[RANDNUM].par etc. Data are organized in four directories: ./Par ./Data ./Grid and ./Plot
 	
 Working environment is assumed to be Linux with bash, sed and gnuplot. Look at the bottom for an MLP training example.
+This tool was generated at the Lorentz Center, Leiden, 2018, during the workshop Molecular Simulations Meets Machine Learning and Artificial Intelligence from 8 Oct 2018 through 12 Oct 2018.
 
 See: potfield-example.png
 
