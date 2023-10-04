@@ -1,4 +1,7 @@
 # GenPotField
+
+[![DOI](https://zenodo.org/badge/152562156.svg)](https://zenodo.org/badge/latestdoi/152562156)
+
 This is a small package, mainly intended for machine-learning researchers who want to take a look at potential-field estimation as is done in Molecular Dynamics (MD) or molecular simulations. The tool only generates a (negative) potential field, i.e., with peaks rather than valleys. None of the realistic geometric problems of molecular symmetry etc. are handled, just a 2D mountain landcape is generated using a randomly drawn Gaussian mixture. However, some structuring is present. A main peak is drawn randomly and is given the largest amplitude. Then, in its vicinity, secondary peaks are drawn, and so on, recursively. Standard deviations, number of levels and number of peaks per hierarchical level can be specified.
 
 The Bash script 'demo' will generate 100 potential fields (parameters, samples, grid and plot), with each set
